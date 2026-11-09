@@ -41,7 +41,7 @@ It works for plain YAML and for the formats built on it: Kubernetes, OpenAPI, Do
 Install the packaged extension from a `.vsix` file:
 
 ```sh
-code --install-extension yaml-preview-enhanced-0.1.2.vsix
+code --install-extension yaml-preview-enhanced-vscode-0.1.2.vsix
 ```
 
 Or in VS Code: **Extensions** view → **…** menu → **Install from VSIX…**.
@@ -368,7 +368,7 @@ pnpm build              # bundle to out/ (desktop, web and webview)
 pnpm watch              # rebuild on change
 pnpm test               # build, then run the mocha tests in test/
 pnpm check:all          # ESLint, Prettier and tsc
-pnpm package            # create yaml-preview-enhanced-<version>.vsix (vsce needs Node 20)
+pnpm package            # create yaml-preview-enhanced-vscode-<version>.vsix (vsce needs Node 20)
 ```
 
 Press <kbd>F5</kbd> in VS Code to launch an Extension Development Host with the extension loaded. After a change, run `pnpm build` and reload that window (**Developer: Reload Window**).

@@ -32,5 +32,5 @@ See [AGENTS.md](AGENTS.md) for the full architecture and conventions.
 
 ## Package
 
-- `pnpm package` creates `yaml-preview-enhanced-<version>.vsix` (needs Node 20 for `vsce`)
-- install it with `code --install-extension yaml-preview-enhanced-<version>.vsix`
+- `pnpm package` creates `yaml-preview-enhanced-vscode-<version>.vsix` (needs Node 20 for `vsce`)
+- install it with `code --install-extension yaml-preview-enhanced-vscode-<version>.vsix`

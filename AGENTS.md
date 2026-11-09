@@ -73,7 +73,7 @@ esbuild bundles these targets: `src/extension.ts` → `out/native/extension.js`,
 - Lint: `pnpm check:all` (ESLint + Prettier + tsc)
 - Fix: `pnpm fix:all`
 - Watch mode (for extension dev): `pnpm watch`
-- Package: `pnpm package` (writes `yaml-preview-enhanced-<version>.vsix`; run on Node 20)
+- Package: `pnpm package` (writes `yaml-preview-enhanced-vscode-<version>.vsix`; run on Node 20)
 
 Prettier also checks Markdown, so run `pnpm fix:prettier` (or `pnpm exec prettier --write README.md AGENTS.md`) after editing documentation.
 
