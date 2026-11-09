@@ -52,7 +52,7 @@ export function registerCommands(
           return await fn(...args);
         } catch (e) {
           void vscode.window.showErrorMessage(
-            `YAML Preview Enhanced: ${e instanceof Error ? e.message : String(e)}`,
+            `yaml-preview-enhanced-r: ${e instanceof Error ? e.message : String(e)}`,
           );
         }
       }),

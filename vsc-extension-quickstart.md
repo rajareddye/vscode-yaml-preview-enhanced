@@ -1,4 +1,4 @@
-# YAML Preview Enhanced — Developer Quickstart
+# yaml-preview-enhanced-r — Developer Quickstart
 
 ## What's in the folder
 
@@ -15,8 +15,8 @@ See [AGENTS.md](AGENTS.md) for the full architecture and conventions.
 
 - run `pnpm install` and then `pnpm build`
 - press `F5` to open a new window with the extension loaded
-- open `examples/requirements.yaml`, then run **YAML Preview Enhanced: Open Preview to the Side** from the Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P` on Mac)
-- for diagrams, set `yaml-preview-enhanced.plantumlJarPath` and run **YAML Preview Enhanced: Test PlantUML Setup**
+- open `examples/requirements.yaml`, then run **yaml-preview-enhanced-r: Open Preview to the Side** from the Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P` on Mac)
+- for diagrams, set `yaml-preview-enhanced.plantumlJarPath` and run **yaml-preview-enhanced-r: Test PlantUML Setup**
 - set breakpoints in the TypeScript sources to debug the extension host; use **Developer: Open Webview Developer Tools** to debug the preview
 
 ## Make changes

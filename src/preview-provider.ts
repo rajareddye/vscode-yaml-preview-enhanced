@@ -702,7 +702,7 @@ export class PreviewProvider implements vscode.Disposable {
           await vscode.env.openExternal(vscode.Uri.parse(href));
         } else {
           void vscode.window.showWarningMessage(
-            `YAML Preview Enhanced: not opening "${href.slice(0, 80)}" — its protocol is not in "protocolsWhiteList".`,
+            `yaml-preview-enhanced-r: not opening "${href.slice(0, 80)}" — its protocol is not in "protocolsWhiteList".`,
           );
         }
         break;

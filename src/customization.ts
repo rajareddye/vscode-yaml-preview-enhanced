@@ -21,7 +21,7 @@ import type { Customization, CustomFile, ParserHooks } from './platform';
  */
 
 const TEMPLATES: Record<CustomFile, string> = {
-  'style.css': `/* Extra CSS for YAML Preview Enhanced. Applied to the preview and to exports.
+  'style.css': `/* Extra CSS for yaml-preview-enhanced-r. Applied to the preview and to exports.
  * Theme colours are CSS variables, e.g.:
  *
  *   :root { --key: #d73a49; --str: #032f62; }
@@ -31,7 +31,7 @@ const TEMPLATES: Record<CustomFile, string> = {
   'head.html': `<!-- Extra markup for the <head> of the preview, e.g. <link> or <meta>.
      Scripts are blocked by the preview's Content-Security-Policy. -->
 `,
-  'config.js': `// Overrides for YAML Preview Enhanced settings. Values here win over VS Code
+  'config.js': `// Overrides for yaml-preview-enhanced-r settings. Values here win over VS Code
 // settings. Export an object, or a function that receives the current settings.
 //
 // module.exports = {
@@ -144,7 +144,7 @@ export class NativeCustomization implements Customization {
         if (!this.warned.has(key)) {
           this.warned.add(key);
           void vscode.window.showWarningMessage(
-            `YAML Preview Enhanced: could not run ${path}: ${e instanceof Error ? e.message : String(e)}`,
+            `yaml-preview-enhanced-r: could not run ${path}: ${e instanceof Error ? e.message : String(e)}`,
           );
         }
       }
@@ -169,7 +169,7 @@ export class NativeCustomization implements Customization {
         try {
           mod = await (mod as (c: Config) => unknown)(cfg);
         } catch (e) {
-          void vscode.window.showWarningMessage(`YAML Preview Enhanced: ${p} threw: ${String(e)}`);
+          void vscode.window.showWarningMessage(`yaml-preview-enhanced-r: ${p} threw: ${String(e)}`);
           mod = undefined;
         }
       }
@@ -199,7 +199,7 @@ export class NativeCustomization implements Customization {
       dir = this.workspaceDir(vscode.window.activeTextEditor?.document.uri);
       if (!dir) {
         void vscode.window.showWarningMessage(
-          'YAML Preview Enhanced: open a local folder to use workspace-level customisation.',
+          'yaml-preview-enhanced-r: open a local folder to use workspace-level customisation.',
         );
         return;
       }

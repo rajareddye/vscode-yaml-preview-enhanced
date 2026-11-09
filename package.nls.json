@@ -91,7 +91,7 @@
   "yaml-preview-enhanced.documentTextKeys.markdownDescription": "**Document view:** keys whose string value is body text — rendered as Markdown, without a label.",
   "yaml-preview-enhanced.documentFlattenKeys.markdownDescription": "**Document view:** keys that only contain other blocks. Their children are shown directly, without a heading for the key itself.",
   "yaml-preview-enhanced.plantumlEnabled.markdownDescription": "Render inline PlantUML diagrams. A diagram is a `@startuml … @enduml` block (or any `@start<kind>`) inside a string value, a ```` ```plantuml ```` fence inside Markdown text, or the value of a key listed in `plantumlKeys`.",
-  "yaml-preview-enhanced.plantumlJarPath.markdownDescription": "Path to `plantuml.jar`. Diagrams are rendered locally with `java -jar` — nothing is sent over the network. Run **YAML Preview Enhanced: Test PlantUML Setup** to check it.",
+  "yaml-preview-enhanced.plantumlJarPath.markdownDescription": "Path to `plantuml.jar`. Diagrams are rendered locally with `java -jar` — nothing is sent over the network. Run **yaml-preview-enhanced-r: Test PlantUML Setup** to check it.",
   "yaml-preview-enhanced.javaPath.markdownDescription": "Java executable used to run PlantUML (`java` is looked up on the `PATH`).",
   "yaml-preview-enhanced.plantumlSecurityProfile.markdownDescription": "PlantUML’s `PLANTUML_SECURITY_PROFILE`. **SANDBOX** (default) forbids diagrams from reading local files or using the network, which matters because a YAML file you open may be untrusted. The bundled standard library (`!include <C4/…>`) still works. Use `LEGACY` or `UNSECURE` only if your diagrams `!include` your own files.",
   "yaml-preview-enhanced.plantumlSecurityProfile.markdownEnumDescriptions.0": "No file or network access from a diagram.",
@@ -117,7 +117,7 @@
   "yaml-preview-enhanced.chromeArgs.markdownDescription": "Extra command-line arguments passed to Chrome during export, e.g. `[\"--no-sandbox\"]`.",
   "yaml-preview-enhanced.configPath.markdownDescription": "Directory holding the global `style.css`, `config.js`, `parser.js` and `head.html`. Defaults to `~/.local/state/yaml-preview-enhanced` (`%USERPROFILE%\\.yaml-preview-enhanced` on Windows).",
   "yaml-preview-enhanced.enableScriptExecution.markdownDescription": "Allow **workspace-level** `config.js` and `parser.js` to run. They execute code, so they only run in trusted workspaces *and* when this is enabled. Global scripts always run.",
-  "displayName": "YAML Preview Enhanced",
+  "displayName": "yaml-preview-enhanced-r",
   "description": "Preview YAML as a live, searchable tree with anchors, tables, JSON Schema validation, themes and export — the Markdown Preview Enhanced experience for .yaml files.",
   "yaml-preview-enhanced.customEditorPreviewDisplayName": "YAML Preview"
 }

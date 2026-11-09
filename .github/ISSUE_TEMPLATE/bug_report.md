@@ -13,7 +13,7 @@ A clear and concise description of what the bug is.
 **Environment**
 - OS: Windows 11
 - VSCode: 1.82.0
-- YAML Preview Enhanced: 0.1.0
+- yaml-preview-enhanced-r: 0.1.0
 - Java and PlantUML versions (only for diagram problems):
 
 **To Reproduce**

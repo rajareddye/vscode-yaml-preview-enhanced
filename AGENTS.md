@@ -4,7 +4,7 @@ This file provides context for AI coding agents (GitHub Copilot, Claude, etc.) w
 
 ## Project Overview
 
-This is the **VS Code extension** YAML Preview Enhanced. It previews `.yaml` / `.yml` files in a webview: a collapsible tree, a readable document view (Markdown text and inline PlantUML diagrams), resolved JSON / YAML views, JSON Schema validation and export. It is derived from [Markdown Preview Enhanced](https://github.com/shd101wyy/vscode-markdown-preview-enhanced) but no longer depends on crossnote — YAML is parsed with [`yaml`](https://eemeli.org/yaml/), text is rendered with `markdown-it`, schemas are validated with `ajv`, and PlantUML runs through a local `plantuml.jar`.
+This is the **VS Code extension** yaml-preview-enhanced-r. It previews `.yaml` / `.yml` files in a webview: a collapsible tree, a readable document view (Markdown text and inline PlantUML diagrams), resolved JSON / YAML views, JSON Schema validation and export. It is derived from [Markdown Preview Enhanced](https://github.com/shd101wyy/vscode-markdown-preview-enhanced) but no longer depends on crossnote — YAML is parsed with [`yaml`](https://eemeli.org/yaml/), text is rendered with `markdown-it`, schemas are validated with `ajv`, and PlantUML runs through a local `plantuml.jar`.
 
 User-facing behavior is documented in [README.md](README.md); keep it in sync with `package.json` and `package.nls.json` when you add or change commands, settings or keybindings.
 

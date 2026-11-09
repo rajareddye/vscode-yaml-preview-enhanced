@@ -1,7 +1,7 @@
-<h1 align="center"> YAML Preview Enhanced </h1>
+<h1 align="center"> yaml-preview-enhanced-r </h1>
 
 <p align="center">
-  <img src="media/icon.png" alt="YAML Preview Enhanced" width="128">
+  <img src="media/icon.png" alt="yaml-preview-enhanced-r" width="128">
 </p>
 
 <p align="center">
@@ -16,7 +16,7 @@
 
 ## Introduction
 
-YAML Preview Enhanced brings the [Markdown Preview Enhanced](https://github.com/shd101wyy/vscode-markdown-preview-enhanced) experience to `.yaml` and `.yml` files. Open a preview next to your editor and the extension:
+yaml-preview-enhanced-r brings the [Markdown Preview Enhanced](https://github.com/shd101wyy/vscode-markdown-preview-enhanced) experience to `.yaml` and `.yml` files. Open a preview next to your editor and the extension:
 
 - shows the file as a **collapsible tree** with types, anchors, aliases, comments, line numbers and automatic tables;
 - reads it as a **document** — titles become headings, `metadata` collapses, text is rendered as Markdown and **PlantUML diagrams are drawn inline**;
@@ -54,8 +54,8 @@ To build the `.vsix` yourself, see [Development](#development).
 2. Open the preview — it does **not** start on its own unless you turn on `automaticallyShowPreviewOfYamlBeingEdited`. Use any of these:
    - press <kbd>ctrl-k v</kbd> (<kbd>cmd-k v</kbd> on macOS) to open the preview to the side;
    - click the preview icon in the editor title bar;
-   - right-click the editor and choose **YAML Preview Enhanced: Open Preview to the Side**;
-   - run **YAML Preview Enhanced: Open Preview** from the Command Palette.
+   - right-click the editor and choose **yaml-preview-enhanced-r: Open Preview to the Side**;
+   - run **yaml-preview-enhanced-r: Open Preview** from the Command Palette.
 3. Pick a view in the preview toolbar: **Tree**, **Document**, **JSON** or **Resolved**.
 
 To open every YAML file straight into the preview instead of a text editor, set `yaml-preview-enhanced.previewMode` to **Previews Only**. You can also choose **Reopen Editor With… → YAML Preview** for a single file.
@@ -121,7 +121,7 @@ PlantUML diagrams are rendered **locally** with `java -jar plantuml.jar -pipe -t
 
 1. Install Java and download [`plantuml.jar`](https://plantuml.com/download).
 2. Set `yaml-preview-enhanced.plantumlJarPath` to the jar (default `/usr/local/bin/plantuml.jar`). If `java` is not on your `PATH`, also set `yaml-preview-enhanced.javaPath`.
-3. Run **YAML Preview Enhanced: Test PlantUML Setup** to confirm it works.
+3. Run **yaml-preview-enhanced-r: Test PlantUML Setup** to confirm it works.
 
 Diagrams are cached, rendered in parallel (a bounded number at a time) and stopped if they exceed `plantumlTimeoutMs`. Run **Clear PlantUML Cache and Refresh Diagrams** after changing PlantUML settings or the jar. Right-click a diagram to enlarge it, copy its source or save it as SVG.
 
@@ -139,7 +139,7 @@ Schema problems are listed in the preview, flagged on the offending nodes and, w
 2. The `yaml-preview-enhanced.schemas` map of schema path → glob pattern(s), for example `{ "schemas/ci.json": ".github/workflows/*.yml" }`
 3. The single `yaml-preview-enhanced.schema` setting
 
-Schemas may be JSON or YAML, and relative paths resolve against the file (modeline) or the workspace folder (settings). Drafts 2020-12, 2019-09 and 07 are supported, with standard string formats; a schema that declares an older draft is validated on a best-effort basis. Run **YAML Preview Enhanced: Associate JSON Schema…** to pick a schema and insert the modeline for you.
+Schemas may be JSON or YAML, and relative paths resolve against the file (modeline) or the workspace folder (settings). Drafts 2020-12, 2019-09 and 07 are supported, with standard string formats; a schema that declares an older draft is validated on a best-effort basis. Run **yaml-preview-enhanced-r: Associate JSON Schema…** to pick a schema and insert the modeline for you.
 
 Previewing a file never makes a network request by itself: `http(s)://` schemas are downloaded only after you enable `yaml-preview-enhanced.allowRemoteSchemas`.
 
@@ -182,7 +182,7 @@ Matching is case-insensitive.
 
 ## Exporting
 
-Run **YAML Preview Enhanced: Export…** (or use the right-click menu in the preview) and choose a format:
+Run **yaml-preview-enhanced-r: Export…** (or use the right-click menu in the preview) and choose a format:
 
 | Format              | Description                                                                  |
 | ------------------- | ---------------------------------------------------------------------------- |
@@ -215,7 +215,7 @@ Use the **Customize CSS**, **Open Config Script**, **Extend Parser** and **Custo
 
 ## Commands
 
-All commands are in the Command Palette under **YAML Preview Enhanced**.
+All commands are in the Command Palette under **yaml-preview-enhanced-r**.
 
 | Command                                                                          | Description                                                   |
 | -------------------------------------------------------------------------------- | ------------------------------------------------------------- |
@@ -251,7 +251,7 @@ All commands are in the Command Palette under **YAML Preview Enhanced**.
 
 ## Settings
 
-All settings start with `yaml-preview-enhanced.`. Open **Settings** and search for _YAML Preview Enhanced_ to edit them with descriptions.
+All settings start with `yaml-preview-enhanced.`. Open **Settings** and search for _yaml-preview-enhanced-r_ to edit them with descriptions.
 
 ### Preview behavior
 
@@ -375,7 +375,7 @@ Press <kbd>F5</kbd> in VS Code to launch an Extension Development Host with the 
 
 ## Acknowledgements
 
-YAML Preview Enhanced is derived from [Markdown Preview Enhanced](https://github.com/shd101wyy/vscode-markdown-preview-enhanced) by Yiyi Wang and contributors, and keeps its familiar commands, keybindings and settings style. Many thanks to the authors.
+yaml-preview-enhanced-r is derived from [Markdown Preview Enhanced](https://github.com/shd101wyy/vscode-markdown-preview-enhanced) by Yiyi Wang and contributors, and keeps its familiar commands, keybindings and settings style. Many thanks to the authors.
 
 ## License
 
