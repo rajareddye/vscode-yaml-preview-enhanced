@@ -1,0 +1,37 @@
+# Requirements document with inline PlantUML.
+# Open the YAML preview and pick the "Document" view (or set
+# yaml-preview-enhanced.defaultView to "document").
+- id: req:user-login
+  type: requirement
+  metadata:
+    status: approved
+    owner: web-team
+    tags: [auth, login]
+  text: |
+    A registered user shall be able to sign in with an e-mail address and a
+    password. After `maxAttempts` failed attempts the account is locked; see
+    `AuthService.login` for the full flow.
+
+- title: Sign-in flow
+  content:
+    - title: Sign in with e-mail and password
+      type: diagram
+      metadata:
+        kind: sequence
+      plantuml: |
+        @startuml
+        title Sign-in
+        autonumber
+        actor User
+        participant "Web App" as App
+        participant "Auth Service" as Auth
+        User -> App: submit(email, password)
+        App -> Auth: login(email, password)
+        alt valid credentials
+          Auth --> App: session token
+          App --> User: show dashboard
+        else invalid credentials
+          Auth --> App: error
+          App --> User: show error message
+        end
+        @enduml

@@ -1,0 +1,1088 @@
+{
+  "name": "yaml-preview-enhanced",
+  "displayName": "%displayName%",
+  "description": "%description%",
+  "version": "0.1.2",
+  "publisher": "rajareddye",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "icon": "media/icon.png",
+  "galleryBanner": {
+    "color": "#1e1e2e",
+    "theme": "dark"
+  },
+  "categories": [
+    "Visualization",
+    "Formatters",
+    "Other"
+  ],
+  "keywords": [
+    "yaml",
+    "yml",
+    "preview",
+    "viewer",
+    "tree",
+    "json schema",
+    "kubernetes",
+    "openapi",
+    "docker compose",
+    "github actions",
+    "anchors",
+    "export"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rajareddye/vscode-yaml-preview-enhanced.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rajareddye/vscode-yaml-preview-enhanced/issues"
+  },
+  "homepage": "https://github.com/rajareddye/vscode-yaml-preview-enhanced#readme",
+  "engines": {
+    "vscode": "^1.82.0"
+  },
+  "main": "./out/native/extension.js",
+  "browser": "./out/web/extension.js",
+  "activationEvents": [
+    "onStartupFinished",
+    "onLanguage:yaml",
+    "onLanguage:dockercompose",
+    "onLanguage:github-actions-workflow",
+    "onLanguage:ansible",
+    "onLanguage:azure-pipelines",
+    "onLanguage:home-assistant"
+  ],
+  "capabilities": {
+    "virtualWorkspaces": {
+      "supported": "limited",
+      "description": "Local-only features (PDF/PNG export, config scripts, open in browser) are unavailable in virtual workspaces."
+    },
+    "untrustedWorkspaces": {
+      "supported": "limited",
+      "description": "Settings that point at executables or scripts, and workspace-level scripts, are ignored in untrusted workspaces.",
+      "restrictedConfigurations": [
+        "yaml-preview-enhanced.chromePath",
+        "yaml-preview-enhanced.chromeArgs",
+        "yaml-preview-enhanced.configPath",
+        "yaml-preview-enhanced.enableScriptExecution",
+        "yaml-preview-enhanced.allowRemoteSchemas",
+        "yaml-preview-enhanced.plantumlJarPath",
+        "yaml-preview-enhanced.javaPath",
+        "yaml-preview-enhanced.plantumlArgs",
+        "yaml-preview-enhanced.plantumlSecurityProfile"
+      ]
+    }
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "yaml-preview-enhanced.openPreviewToTheSide",
+        "title": "%yaml-preview-enhanced.openPreviewToTheSide.title%",
+        "category": "YAML Preview Enhanced",
+        "icon": {
+          "light": "./media/preview-right-light.svg",
+          "dark": "./media/preview-right-dark.svg"
+        }
+      },
+      {
+        "command": "yaml-preview-enhanced.openPreview",
+        "title": "%yaml-preview-enhanced.openPreview.title%",
+        "category": "YAML Preview Enhanced",
+        "icon": {
+          "light": "./media/preview-light.svg",
+          "dark": "./media/preview-dark.svg"
+        }
+      },
+      {
+        "command": "yaml-preview-enhanced.openLockedPreviewToTheSide",
+        "title": "%yaml-preview-enhanced.openLockedPreviewToTheSide.title%",
+        "category": "YAML Preview Enhanced"
+      },
+      {
+        "command": "yaml-preview-enhanced.togglePreviewLock",
+        "title": "%yaml-preview-enhanced.togglePreviewLock.title%",
+        "category": "YAML Preview Enhanced"
+      },
+      {
+        "command": "yaml-preview-enhanced.syncPreview",
+        "title": "%yaml-preview-enhanced.syncPreview.title%",
+        "category": "YAML Preview Enhanced"
+      },
+      {
+        "command": "yaml-preview-enhanced.toggleScrollSync",
+        "title": "%yaml-preview-enhanced.toggleScrollSync.title%",
+        "category": "YAML Preview Enhanced"
+      },
+      {
+        "command": "yaml-preview-enhanced.toggleLiveUpdate",
+        "title": "%yaml-preview-enhanced.toggleLiveUpdate.title%",
+        "category": "YAML Preview Enhanced"
+      },
+      {
+        "command": "yaml-preview-enhanced.copyCurrentSourcePath",
+        "title": "%yaml-preview-enhanced.copyCurrentSourcePath.title%",
+        "category": "YAML Preview Enhanced"
+      },
+      {
+        "command": "yaml-preview-enhanced.copyCurrentSourceRelativePath",
+        "title": "%yaml-preview-enhanced.copyCurrentSourceRelativePath.title%",
+        "category": "YAML Preview Enhanced"
+      },
+      {
+        "command": "yaml-preview-enhanced.openCurrentSourceInEditor",
+        "title": "%yaml-preview-enhanced.openCurrentSourceInEditor.title%",
+        "category": "YAML Preview Enhanced"
+      },
+      {
+        "command": "yaml-preview-enhanced.openCurrentSourceInEditorAndClosePreview",
+        "title": "%yaml-preview-enhanced.openCurrentSourceInEditorAndClosePreview.title%",
+        "category": "YAML Preview Enhanced"
+      },
+      {
+        "command": "yaml-preview-enhanced.setView",
+        "title": "%yaml-preview-enhanced.setView.title%",
+        "category": "YAML Preview Enhanced"
+      },
+      {
+        "command": "yaml-preview-enhanced.expandAll",
+        "title": "%yaml-preview-enhanced.expandAll.title%",
+        "category": "YAML Preview Enhanced"
+      },
+      {
+        "command": "yaml-preview-enhanced.collapseAll",
+        "title": "%yaml-preview-enhanced.collapseAll.title%",
+        "category": "YAML Preview Enhanced"
+      },
+      {
+        "command": "yaml-preview-enhanced.focusSearch",
+        "title": "%yaml-preview-enhanced.focusSearch.title%",
+        "category": "YAML Preview Enhanced"
+      },
+      {
+        "command": "yaml-preview-enhanced.toggleAutoTables",
+        "title": "%yaml-preview-enhanced.toggleAutoTables.title%",
+        "category": "YAML Preview Enhanced"
+      },
+      {
+        "command": "yaml-preview-enhanced.toggleComments",
+        "title": "%yaml-preview-enhanced.toggleComments.title%",
+        "category": "YAML Preview Enhanced"
+      },
+      {
+        "command": "yaml-preview-enhanced.toggleSortKeys",
+        "title": "%yaml-preview-enhanced.toggleSortKeys.title%",
+        "category": "YAML Preview Enhanced"
+      },
+      {
+        "command": "yaml-preview-enhanced.toggleMarkdownInStrings",
+        "title": "%yaml-preview-enhanced.toggleMarkdownInStrings.title%",
+        "category": "YAML Preview Enhanced"
+      },
+      {
+        "command": "yaml-preview-enhanced.selectSchema",
+        "title": "%yaml-preview-enhanced.selectSchema.title%",
+        "category": "YAML Preview Enhanced"
+      },
+      {
+        "command": "yaml-preview-enhanced.copyAsJson",
+        "title": "%yaml-preview-enhanced.copyAsJson.title%",
+        "category": "YAML Preview Enhanced"
+      },
+      {
+        "command": "yaml-preview-enhanced.copyAsResolvedYaml",
+        "title": "%yaml-preview-enhanced.copyAsResolvedYaml.title%",
+        "category": "YAML Preview Enhanced"
+      },
+      {
+        "command": "yaml-preview-enhanced.export",
+        "title": "%yaml-preview-enhanced.export.title%",
+        "category": "YAML Preview Enhanced"
+      },
+      {
+        "command": "yaml-preview-enhanced.exportHtml",
+        "title": "%yaml-preview-enhanced.exportHtml.title%",
+        "category": "YAML Preview Enhanced"
+      },
+      {
+        "command": "yaml-preview-enhanced.exportPdf",
+        "title": "%yaml-preview-enhanced.exportPdf.title%",
+        "category": "YAML Preview Enhanced",
+        "enablement": "!isWeb"
+      },
+      {
+        "command": "yaml-preview-enhanced.exportPng",
+        "title": "%yaml-preview-enhanced.exportPng.title%",
+        "category": "YAML Preview Enhanced",
+        "enablement": "!isWeb"
+      },
+      {
+        "command": "yaml-preview-enhanced.exportJpeg",
+        "title": "%yaml-preview-enhanced.exportJpeg.title%",
+        "category": "YAML Preview Enhanced",
+        "enablement": "!isWeb"
+      },
+      {
+        "command": "yaml-preview-enhanced.exportJson",
+        "title": "%yaml-preview-enhanced.exportJson.title%",
+        "category": "YAML Preview Enhanced"
+      },
+      {
+        "command": "yaml-preview-enhanced.exportResolvedYaml",
+        "title": "%yaml-preview-enhanced.exportResolvedYaml.title%",
+        "category": "YAML Preview Enhanced"
+      },
+      {
+        "command": "yaml-preview-enhanced.exportMarkdown",
+        "title": "%yaml-preview-enhanced.exportMarkdown.title%",
+        "category": "YAML Preview Enhanced"
+      },
+      {
+        "command": "yaml-preview-enhanced.openInBrowser",
+        "title": "%yaml-preview-enhanced.openInBrowser.title%",
+        "category": "YAML Preview Enhanced",
+        "enablement": "!isWeb"
+      },
+      {
+        "command": "yaml-preview-enhanced.clearDiagramCache",
+        "title": "%yaml-preview-enhanced.clearDiagramCache.title%",
+        "category": "YAML Preview Enhanced",
+        "enablement": "!isWeb"
+      },
+      {
+        "command": "yaml-preview-enhanced.testPlantUml",
+        "title": "%yaml-preview-enhanced.testPlantUml.title%",
+        "category": "YAML Preview Enhanced",
+        "enablement": "!isWeb"
+      },
+      {
+        "command": "yaml-preview-enhanced.customizeCss",
+        "title": "%yaml-preview-enhanced.customizeCss.title%",
+        "category": "YAML Preview Enhanced",
+        "enablement": "!isWeb"
+      },
+      {
+        "command": "yaml-preview-enhanced.customizeCssInWorkspace",
+        "title": "%yaml-preview-enhanced.customizeCssInWorkspace.title%",
+        "category": "YAML Preview Enhanced",
+        "enablement": "!isWeb"
+      },
+      {
+        "command": "yaml-preview-enhanced.openConfigScript",
+        "title": "%yaml-preview-enhanced.openConfigScript.title%",
+        "category": "YAML Preview Enhanced",
+        "enablement": "!isWeb"
+      },
+      {
+        "command": "yaml-preview-enhanced.openConfigScriptInWorkspace",
+        "title": "%yaml-preview-enhanced.openConfigScriptInWorkspace.title%",
+        "category": "YAML Preview Enhanced",
+        "enablement": "!isWeb"
+      },
+      {
+        "command": "yaml-preview-enhanced.extendParser",
+        "title": "%yaml-preview-enhanced.extendParser.title%",
+        "category": "YAML Preview Enhanced",
+        "enablement": "!isWeb"
+      },
+      {
+        "command": "yaml-preview-enhanced.extendParserInWorkspace",
+        "title": "%yaml-preview-enhanced.extendParserInWorkspace.title%",
+        "category": "YAML Preview Enhanced",
+        "enablement": "!isWeb"
+      },
+      {
+        "command": "yaml-preview-enhanced.customizePreviewHtmlHead",
+        "title": "%yaml-preview-enhanced.customizePreviewHtmlHead.title%",
+        "category": "YAML Preview Enhanced",
+        "enablement": "!isWeb"
+      },
+      {
+        "command": "yaml-preview-enhanced.customizePreviewHtmlHeadInWorkspace",
+        "title": "%yaml-preview-enhanced.customizePreviewHtmlHeadInWorkspace.title%",
+        "category": "YAML Preview Enhanced",
+        "enablement": "!isWeb"
+      }
+    ],
+    "configuration": {
+      "title": "YAML Preview Enhanced",
+      "properties": {
+        "yaml-preview-enhanced.previewMode": {
+          "type": "string",
+          "default": "Single Preview",
+          "markdownDescription": "%yaml-preview-enhanced.previewMode.markdownDescription%",
+          "enum": [
+            "Single Preview",
+            "Multiple Previews",
+            "Previews Only"
+          ],
+          "markdownEnumDescriptions": [
+            "%yaml-preview-enhanced.previewMode.markdownEnumDescriptions.0%",
+            "%yaml-preview-enhanced.previewMode.markdownEnumDescriptions.1%",
+            "%yaml-preview-enhanced.previewMode.markdownEnumDescriptions.2%"
+          ]
+        },
+        "yaml-preview-enhanced.scrollSync": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "%yaml-preview-enhanced.scrollSync.markdownDescription%"
+        },
+        "yaml-preview-enhanced.liveUpdate": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "%yaml-preview-enhanced.liveUpdate.markdownDescription%"
+        },
+        "yaml-preview-enhanced.liveUpdateDebounceMs": {
+          "type": "number",
+          "default": 300,
+          "markdownDescription": "%yaml-preview-enhanced.liveUpdateDebounceMs.markdownDescription%",
+          "minimum": 0,
+          "maximum": 5000
+        },
+        "yaml-preview-enhanced.automaticallyShowPreviewOfYamlBeingEdited": {
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "%yaml-preview-enhanced.automaticallyShowPreviewOfYamlBeingEdited.markdownDescription%"
+        },
+        "yaml-preview-enhanced.disableAutoPreviewForUriSchemes": {
+          "type": "array",
+          "default": [
+            "vscode-notebook-cell"
+          ],
+          "markdownDescription": "%yaml-preview-enhanced.disableAutoPreviewForUriSchemes.markdownDescription%",
+          "items": {
+            "type": "string"
+          }
+        },
+        "yaml-preview-enhanced.disableAutoPreviewForFilePatterns": {
+          "type": "array",
+          "default": [],
+          "markdownDescription": "%yaml-preview-enhanced.disableAutoPreviewForFilePatterns.markdownDescription%",
+          "items": {
+            "type": "string"
+          }
+        },
+        "yaml-preview-enhanced.yamlFileExtensions": {
+          "type": "array",
+          "default": [
+            ".yaml",
+            ".yml"
+          ],
+          "markdownDescription": "%yaml-preview-enhanced.yamlFileExtensions.markdownDescription%",
+          "items": {
+            "type": "string"
+          }
+        },
+        "yaml-preview-enhanced.maxFileSize": {
+          "type": "number",
+          "default": 5242880,
+          "markdownDescription": "%yaml-preview-enhanced.maxFileSize.markdownDescription%",
+          "minimum": 0
+        },
+        "yaml-preview-enhanced.previewColorScheme": {
+          "type": "string",
+          "default": "selectedPreviewTheme",
+          "markdownDescription": "%yaml-preview-enhanced.previewColorScheme.markdownDescription%",
+          "enum": [
+            "selectedPreviewTheme",
+            "systemColorScheme",
+            "editorColorScheme"
+          ],
+          "markdownEnumDescriptions": [
+            "%yaml-preview-enhanced.previewColorScheme.markdownEnumDescriptions.0%",
+            "%yaml-preview-enhanced.previewColorScheme.markdownEnumDescriptions.1%",
+            "%yaml-preview-enhanced.previewColorScheme.markdownEnumDescriptions.2%"
+          ]
+        },
+        "yaml-preview-enhanced.previewTheme": {
+          "type": "string",
+          "default": "github-light",
+          "markdownDescription": "%yaml-preview-enhanced.previewTheme.markdownDescription%",
+          "enum": [
+            "github-light",
+            "github-dark",
+            "one-light",
+            "one-dark",
+            "solarized-light",
+            "solarized-dark",
+            "monokai",
+            "dracula"
+          ]
+        },
+        "yaml-preview-enhanced.defaultView": {
+          "type": "string",
+          "default": "tree",
+          "markdownDescription": "%yaml-preview-enhanced.defaultView.markdownDescription%",
+          "enum": [
+            "tree",
+            "document",
+            "json",
+            "resolved"
+          ],
+          "markdownEnumDescriptions": [
+            "%yaml-preview-enhanced.defaultView.markdownEnumDescriptions.0%",
+            "%yaml-preview-enhanced.defaultView.markdownEnumDescriptions.1%",
+            "%yaml-preview-enhanced.defaultView.markdownEnumDescriptions.2%",
+            "%yaml-preview-enhanced.defaultView.markdownEnumDescriptions.3%"
+          ]
+        },
+        "yaml-preview-enhanced.defaultExpandDepth": {
+          "type": "number",
+          "default": 4,
+          "markdownDescription": "%yaml-preview-enhanced.defaultExpandDepth.markdownDescription%",
+          "minimum": 0,
+          "maximum": 99
+        },
+        "yaml-preview-enhanced.showComments": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "%yaml-preview-enhanced.showComments.markdownDescription%"
+        },
+        "yaml-preview-enhanced.showLineNumbers": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "%yaml-preview-enhanced.showLineNumbers.markdownDescription%"
+        },
+        "yaml-preview-enhanced.showTypeBadges": {
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "%yaml-preview-enhanced.showTypeBadges.markdownDescription%"
+        },
+        "yaml-preview-enhanced.autoTables": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "%yaml-preview-enhanced.autoTables.markdownDescription%"
+        },
+        "yaml-preview-enhanced.sortKeys": {
+          "type": "string",
+          "default": "none",
+          "markdownDescription": "%yaml-preview-enhanced.sortKeys.markdownDescription%",
+          "enum": [
+            "none",
+            "asc",
+            "desc"
+          ]
+        },
+        "yaml-preview-enhanced.maskKeys": {
+          "type": "array",
+          "default": [],
+          "markdownDescription": "%yaml-preview-enhanced.maskKeys.markdownDescription%",
+          "items": {
+            "type": "string"
+          }
+        },
+        "yaml-preview-enhanced.enablePreviewZenMode": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "%yaml-preview-enhanced.enablePreviewZenMode.markdownDescription%"
+        },
+        "yaml-preview-enhanced.enablePreviewContextMenu": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "%yaml-preview-enhanced.enablePreviewContextMenu.markdownDescription%"
+        },
+        "yaml-preview-enhanced.useVSCodeThemeForContextMenu": {
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "%yaml-preview-enhanced.useVSCodeThemeForContextMenu.markdownDescription%"
+        },
+        "yaml-preview-enhanced.renderMarkdownInStrings": {
+          "type": "string",
+          "default": "off",
+          "markdownDescription": "%yaml-preview-enhanced.renderMarkdownInStrings.markdownDescription%",
+          "enum": [
+            "off",
+            "byKey",
+            "all"
+          ],
+          "markdownEnumDescriptions": [
+            "%yaml-preview-enhanced.renderMarkdownInStrings.markdownEnumDescriptions.0%",
+            "%yaml-preview-enhanced.renderMarkdownInStrings.markdownEnumDescriptions.1%",
+            "%yaml-preview-enhanced.renderMarkdownInStrings.markdownEnumDescriptions.2%"
+          ]
+        },
+        "yaml-preview-enhanced.markdownKeys": {
+          "type": "array",
+          "default": [
+            "description",
+            "summary",
+            "notes",
+            "readme",
+            "body",
+            "details",
+            "text",
+            "content",
+            "message",
+            "help",
+            "doc",
+            "docs",
+            "documentation",
+            "about"
+          ],
+          "markdownDescription": "%yaml-preview-enhanced.markdownKeys.markdownDescription%",
+          "items": {
+            "type": "string"
+          }
+        },
+        "yaml-preview-enhanced.breakOnSingleNewLine": {
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "%yaml-preview-enhanced.breakOnSingleNewLine.markdownDescription%"
+        },
+        "yaml-preview-enhanced.enableTypographer": {
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "%yaml-preview-enhanced.enableTypographer.markdownDescription%"
+        },
+        "yaml-preview-enhanced.enableLinkify": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "%yaml-preview-enhanced.enableLinkify.markdownDescription%"
+        },
+        "yaml-preview-enhanced.protocolsWhiteList": {
+          "type": "string",
+          "default": "http://, https://, mailto:, tel:",
+          "markdownDescription": "%yaml-preview-enhanced.protocolsWhiteList.markdownDescription%"
+        },
+        "yaml-preview-enhanced.imagePreview": {
+          "type": "string",
+          "default": "local",
+          "markdownDescription": "%yaml-preview-enhanced.imagePreview.markdownDescription%",
+          "enum": [
+            "off",
+            "local",
+            "all"
+          ],
+          "markdownEnumDescriptions": [
+            "%yaml-preview-enhanced.imagePreview.markdownEnumDescriptions.0%",
+            "%yaml-preview-enhanced.imagePreview.markdownEnumDescriptions.1%",
+            "%yaml-preview-enhanced.imagePreview.markdownEnumDescriptions.2%"
+          ]
+        },
+        "yaml-preview-enhanced.enableImageLightbox": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "%yaml-preview-enhanced.enableImageLightbox.markdownDescription%"
+        },
+        "yaml-preview-enhanced.documentTitleKeys": {
+          "type": "array",
+          "default": [
+            "id",
+            "title",
+            "name",
+            "heading",
+            "label"
+          ],
+          "markdownDescription": "%yaml-preview-enhanced.documentTitleKeys.markdownDescription%",
+          "items": {
+            "type": "string"
+          }
+        },
+        "yaml-preview-enhanced.documentMetadataKeys": {
+          "type": "array",
+          "default": [
+            "metadata",
+            "meta",
+            "attributes",
+            "properties",
+            "info"
+          ],
+          "markdownDescription": "%yaml-preview-enhanced.documentMetadataKeys.markdownDescription%",
+          "items": {
+            "type": "string"
+          }
+        },
+        "yaml-preview-enhanced.documentTextKeys": {
+          "type": "array",
+          "default": [
+            "text",
+            "description",
+            "content",
+            "body",
+            "statement",
+            "rationale",
+            "summary",
+            "details",
+            "notes",
+            "comment",
+            "message",
+            "requirement"
+          ],
+          "markdownDescription": "%yaml-preview-enhanced.documentTextKeys.markdownDescription%",
+          "items": {
+            "type": "string"
+          }
+        },
+        "yaml-preview-enhanced.documentFlattenKeys": {
+          "type": "array",
+          "default": [
+            "content",
+            "children",
+            "items",
+            "sections",
+            "blocks",
+            "elements",
+            "entries"
+          ],
+          "markdownDescription": "%yaml-preview-enhanced.documentFlattenKeys.markdownDescription%",
+          "items": {
+            "type": "string"
+          }
+        },
+        "yaml-preview-enhanced.plantumlEnabled": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "%yaml-preview-enhanced.plantumlEnabled.markdownDescription%"
+        },
+        "yaml-preview-enhanced.plantumlJarPath": {
+          "type": "string",
+          "default": "/usr/local/bin/plantuml.jar",
+          "markdownDescription": "%yaml-preview-enhanced.plantumlJarPath.markdownDescription%",
+          "scope": "machine"
+        },
+        "yaml-preview-enhanced.javaPath": {
+          "type": "string",
+          "default": "java",
+          "markdownDescription": "%yaml-preview-enhanced.javaPath.markdownDescription%",
+          "scope": "machine"
+        },
+        "yaml-preview-enhanced.plantumlSecurityProfile": {
+          "type": "string",
+          "default": "SANDBOX",
+          "markdownDescription": "%yaml-preview-enhanced.plantumlSecurityProfile.markdownDescription%",
+          "enum": [
+            "SANDBOX",
+            "INTERNET",
+            "LEGACY",
+            "UNSECURE"
+          ],
+          "scope": "machine",
+          "markdownEnumDescriptions": [
+            "%yaml-preview-enhanced.plantumlSecurityProfile.markdownEnumDescriptions.0%",
+            "%yaml-preview-enhanced.plantumlSecurityProfile.markdownEnumDescriptions.1%",
+            "%yaml-preview-enhanced.plantumlSecurityProfile.markdownEnumDescriptions.2%",
+            "%yaml-preview-enhanced.plantumlSecurityProfile.markdownEnumDescriptions.3%"
+          ]
+        },
+        "yaml-preview-enhanced.plantumlTimeoutMs": {
+          "type": "number",
+          "default": 30000,
+          "markdownDescription": "%yaml-preview-enhanced.plantumlTimeoutMs.markdownDescription%",
+          "minimum": 1000,
+          "maximum": 300000
+        },
+        "yaml-preview-enhanced.plantumlArgs": {
+          "type": "array",
+          "default": [],
+          "markdownDescription": "%yaml-preview-enhanced.plantumlArgs.markdownDescription%",
+          "items": {
+            "type": "string"
+          },
+          "scope": "machine"
+        },
+        "yaml-preview-enhanced.plantumlKeys": {
+          "type": "array",
+          "default": [
+            "plantuml",
+            "puml",
+            "uml"
+          ],
+          "markdownDescription": "%yaml-preview-enhanced.plantumlKeys.markdownDescription%",
+          "items": {
+            "type": "string"
+          }
+        },
+        "yaml-preview-enhanced.yamlVersion": {
+          "type": "string",
+          "default": "1.2",
+          "markdownDescription": "%yaml-preview-enhanced.yamlVersion.markdownDescription%",
+          "enum": [
+            "1.2",
+            "1.1"
+          ]
+        },
+        "yaml-preview-enhanced.maxAliasCount": {
+          "type": "number",
+          "default": 100,
+          "markdownDescription": "%yaml-preview-enhanced.maxAliasCount.markdownDescription%",
+          "minimum": -1
+        },
+        "yaml-preview-enhanced.uniqueKeys": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "%yaml-preview-enhanced.uniqueKeys.markdownDescription%"
+        },
+        "yaml-preview-enhanced.ignoreUnknownTagWarnings": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "%yaml-preview-enhanced.ignoreUnknownTagWarnings.markdownDescription%"
+        },
+        "yaml-preview-enhanced.schema": {
+          "type": "string",
+          "default": "",
+          "markdownDescription": "%yaml-preview-enhanced.schema.markdownDescription%"
+        },
+        "yaml-preview-enhanced.schemas": {
+          "type": "object",
+          "default": {},
+          "markdownDescription": "%yaml-preview-enhanced.schemas.markdownDescription%",
+          "additionalProperties": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          }
+        },
+        "yaml-preview-enhanced.allowRemoteSchemas": {
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "%yaml-preview-enhanced.allowRemoteSchemas.markdownDescription%",
+          "scope": "machine"
+        },
+        "yaml-preview-enhanced.publishDiagnostics": {
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "%yaml-preview-enhanced.publishDiagnostics.markdownDescription%"
+        },
+        "yaml-preview-enhanced.printBackground": {
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "%yaml-preview-enhanced.printBackground.markdownDescription%"
+        },
+        "yaml-preview-enhanced.exportColorScheme": {
+          "type": "string",
+          "default": "theme",
+          "markdownDescription": "%yaml-preview-enhanced.exportColorScheme.markdownDescription%",
+          "enum": [
+            "theme",
+            "auto"
+          ],
+          "markdownEnumDescriptions": [
+            "%yaml-preview-enhanced.exportColorScheme.markdownEnumDescriptions.0%",
+            "%yaml-preview-enhanced.exportColorScheme.markdownEnumDescriptions.1%"
+          ]
+        },
+        "yaml-preview-enhanced.chromePath": {
+          "type": "string",
+          "default": "",
+          "markdownDescription": "%yaml-preview-enhanced.chromePath.markdownDescription%",
+          "scope": "machine"
+        },
+        "yaml-preview-enhanced.chromeArgs": {
+          "type": "array",
+          "default": [],
+          "markdownDescription": "%yaml-preview-enhanced.chromeArgs.markdownDescription%",
+          "items": {
+            "type": "string"
+          },
+          "scope": "machine"
+        },
+        "yaml-preview-enhanced.configPath": {
+          "type": "string",
+          "default": "",
+          "markdownDescription": "%yaml-preview-enhanced.configPath.markdownDescription%",
+          "scope": "machine"
+        },
+        "yaml-preview-enhanced.enableScriptExecution": {
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "%yaml-preview-enhanced.enableScriptExecution.markdownDescription%",
+          "scope": "machine"
+        }
+      }
+    },
+    "customEditors": [
+      {
+        "viewType": "yaml-preview-enhanced",
+        "displayName": "%yaml-preview-enhanced.customEditorPreviewDisplayName%",
+        "selector": [
+          {
+            "filenamePattern": "*.{yaml,yml}"
+          }
+        ],
+        "priority": "option"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "yaml-preview-enhanced.openPreviewToTheSide",
+        "key": "ctrl+k v",
+        "mac": "cmd+k v",
+        "when": "editorLangId =~ /^(yaml|dockercompose|github-actions-workflow|ansible|azure-pipelines|home-assistant)$/"
+      },
+      {
+        "command": "yaml-preview-enhanced.openPreview",
+        "key": "ctrl+shift+v",
+        "mac": "cmd+shift+v",
+        "when": "editorLangId =~ /^(yaml|dockercompose|github-actions-workflow|ansible|azure-pipelines|home-assistant)$/"
+      },
+      {
+        "command": "yaml-preview-enhanced.openLockedPreviewToTheSide",
+        "key": "ctrl+k shift+l",
+        "mac": "cmd+k shift+l",
+        "when": "editorLangId =~ /^(yaml|dockercompose|github-actions-workflow|ansible|azure-pipelines|home-assistant)$/"
+      },
+      {
+        "command": "yaml-preview-enhanced.togglePreviewLock",
+        "key": "ctrl+k ctrl+shift+l",
+        "mac": "cmd+k cmd+shift+l",
+        "when": "editorLangId =~ /^(yaml|dockercompose|github-actions-workflow|ansible|azure-pipelines|home-assistant)$/"
+      },
+      {
+        "command": "yaml-preview-enhanced.syncPreview",
+        "key": "ctrl+shift+s",
+        "mac": "cmd+shift+s",
+        "when": "editorLangId =~ /^(yaml|dockercompose|github-actions-workflow|ansible|azure-pipelines|home-assistant)$/"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "yaml-preview-enhanced.openPreviewToTheSide",
+          "when": "editorLangId =~ /^(yaml|dockercompose|github-actions-workflow|ansible|azure-pipelines|home-assistant)$/",
+          "group": "navigation"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "yaml-preview-enhanced.openPreviewToTheSide",
+          "when": "editorLangId =~ /^(yaml|dockercompose|github-actions-workflow|ansible|azure-pipelines|home-assistant)$/",
+          "group": "yaml-preview-enhanced"
+        },
+        {
+          "command": "yaml-preview-enhanced.selectSchema",
+          "when": "editorLangId =~ /^(yaml|dockercompose|github-actions-workflow|ansible|azure-pipelines|home-assistant)$/",
+          "group": "yaml-preview-enhanced"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "yaml-preview-enhanced.openPreview",
+          "when": "resourceLangId =~ /^(yaml|dockercompose|github-actions-workflow|ansible|azure-pipelines|home-assistant)$/",
+          "group": "yaml-preview-enhanced"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "yaml-preview-enhanced.openPreviewToTheSide",
+          "when": "editorLangId =~ /^(yaml|dockercompose|github-actions-workflow|ansible|azure-pipelines|home-assistant)$/"
+        },
+        {
+          "command": "yaml-preview-enhanced.openPreview",
+          "when": "editorLangId =~ /^(yaml|dockercompose|github-actions-workflow|ansible|azure-pipelines|home-assistant)$/"
+        },
+        {
+          "command": "yaml-preview-enhanced.openLockedPreviewToTheSide",
+          "when": "editorLangId =~ /^(yaml|dockercompose|github-actions-workflow|ansible|azure-pipelines|home-assistant)$/"
+        },
+        {
+          "command": "yaml-preview-enhanced.togglePreviewLock",
+          "when": "editorLangId =~ /^(yaml|dockercompose|github-actions-workflow|ansible|azure-pipelines|home-assistant)$/"
+        },
+        {
+          "command": "yaml-preview-enhanced.syncPreview",
+          "when": "editorLangId =~ /^(yaml|dockercompose|github-actions-workflow|ansible|azure-pipelines|home-assistant)$/"
+        },
+        {
+          "command": "yaml-preview-enhanced.copyCurrentSourcePath",
+          "when": "editorLangId =~ /^(yaml|dockercompose|github-actions-workflow|ansible|azure-pipelines|home-assistant)$/"
+        },
+        {
+          "command": "yaml-preview-enhanced.copyCurrentSourceRelativePath",
+          "when": "editorLangId =~ /^(yaml|dockercompose|github-actions-workflow|ansible|azure-pipelines|home-assistant)$/"
+        },
+        {
+          "command": "yaml-preview-enhanced.openCurrentSourceInEditor",
+          "when": "editorLangId =~ /^(yaml|dockercompose|github-actions-workflow|ansible|azure-pipelines|home-assistant)$/"
+        },
+        {
+          "command": "yaml-preview-enhanced.openCurrentSourceInEditorAndClosePreview",
+          "when": "editorLangId =~ /^(yaml|dockercompose|github-actions-workflow|ansible|azure-pipelines|home-assistant)$/"
+        },
+        {
+          "command": "yaml-preview-enhanced.setView",
+          "when": "editorLangId =~ /^(yaml|dockercompose|github-actions-workflow|ansible|azure-pipelines|home-assistant)$/"
+        },
+        {
+          "command": "yaml-preview-enhanced.expandAll",
+          "when": "editorLangId =~ /^(yaml|dockercompose|github-actions-workflow|ansible|azure-pipelines|home-assistant)$/"
+        },
+        {
+          "command": "yaml-preview-enhanced.collapseAll",
+          "when": "editorLangId =~ /^(yaml|dockercompose|github-actions-workflow|ansible|azure-pipelines|home-assistant)$/"
+        },
+        {
+          "command": "yaml-preview-enhanced.focusSearch",
+          "when": "editorLangId =~ /^(yaml|dockercompose|github-actions-workflow|ansible|azure-pipelines|home-assistant)$/"
+        },
+        {
+          "command": "yaml-preview-enhanced.selectSchema",
+          "when": "editorLangId =~ /^(yaml|dockercompose|github-actions-workflow|ansible|azure-pipelines|home-assistant)$/"
+        },
+        {
+          "command": "yaml-preview-enhanced.copyAsJson",
+          "when": "editorLangId =~ /^(yaml|dockercompose|github-actions-workflow|ansible|azure-pipelines|home-assistant)$/"
+        },
+        {
+          "command": "yaml-preview-enhanced.copyAsResolvedYaml",
+          "when": "editorLangId =~ /^(yaml|dockercompose|github-actions-workflow|ansible|azure-pipelines|home-assistant)$/"
+        },
+        {
+          "command": "yaml-preview-enhanced.export",
+          "when": "editorLangId =~ /^(yaml|dockercompose|github-actions-workflow|ansible|azure-pipelines|home-assistant)$/"
+        },
+        {
+          "command": "yaml-preview-enhanced.exportHtml",
+          "when": "editorLangId =~ /^(yaml|dockercompose|github-actions-workflow|ansible|azure-pipelines|home-assistant)$/"
+        },
+        {
+          "command": "yaml-preview-enhanced.exportPdf",
+          "when": "editorLangId =~ /^(yaml|dockercompose|github-actions-workflow|ansible|azure-pipelines|home-assistant)$/ && !isWeb"
+        },
+        {
+          "command": "yaml-preview-enhanced.exportPng",
+          "when": "editorLangId =~ /^(yaml|dockercompose|github-actions-workflow|ansible|azure-pipelines|home-assistant)$/ && !isWeb"
+        },
+        {
+          "command": "yaml-preview-enhanced.exportJpeg",
+          "when": "editorLangId =~ /^(yaml|dockercompose|github-actions-workflow|ansible|azure-pipelines|home-assistant)$/ && !isWeb"
+        },
+        {
+          "command": "yaml-preview-enhanced.exportJson",
+          "when": "editorLangId =~ /^(yaml|dockercompose|github-actions-workflow|ansible|azure-pipelines|home-assistant)$/"
+        },
+        {
+          "command": "yaml-preview-enhanced.exportResolvedYaml",
+          "when": "editorLangId =~ /^(yaml|dockercompose|github-actions-workflow|ansible|azure-pipelines|home-assistant)$/"
+        },
+        {
+          "command": "yaml-preview-enhanced.exportMarkdown",
+          "when": "editorLangId =~ /^(yaml|dockercompose|github-actions-workflow|ansible|azure-pipelines|home-assistant)$/"
+        },
+        {
+          "command": "yaml-preview-enhanced.openInBrowser",
+          "when": "editorLangId =~ /^(yaml|dockercompose|github-actions-workflow|ansible|azure-pipelines|home-assistant)$/ && !isWeb"
+        },
+        {
+          "command": "yaml-preview-enhanced.clearDiagramCache",
+          "when": "!isWeb"
+        },
+        {
+          "command": "yaml-preview-enhanced.testPlantUml",
+          "when": "!isWeb"
+        },
+        {
+          "command": "yaml-preview-enhanced.toggleScrollSync",
+          "when": "true"
+        },
+        {
+          "command": "yaml-preview-enhanced.toggleLiveUpdate",
+          "when": "true"
+        },
+        {
+          "command": "yaml-preview-enhanced.toggleAutoTables",
+          "when": "true"
+        },
+        {
+          "command": "yaml-preview-enhanced.toggleComments",
+          "when": "true"
+        },
+        {
+          "command": "yaml-preview-enhanced.toggleSortKeys",
+          "when": "true"
+        },
+        {
+          "command": "yaml-preview-enhanced.toggleMarkdownInStrings",
+          "when": "true"
+        },
+        {
+          "command": "yaml-preview-enhanced.customizeCss",
+          "when": "!isWeb"
+        },
+        {
+          "command": "yaml-preview-enhanced.customizeCssInWorkspace",
+          "when": "!isWeb"
+        },
+        {
+          "command": "yaml-preview-enhanced.openConfigScript",
+          "when": "!isWeb"
+        },
+        {
+          "command": "yaml-preview-enhanced.openConfigScriptInWorkspace",
+          "when": "!isWeb"
+        },
+        {
+          "command": "yaml-preview-enhanced.extendParser",
+          "when": "!isWeb"
+        },
+        {
+          "command": "yaml-preview-enhanced.extendParserInWorkspace",
+          "when": "!isWeb"
+        },
+        {
+          "command": "yaml-preview-enhanced.customizePreviewHtmlHead",
+          "when": "!isWeb"
+        },
+        {
+          "command": "yaml-preview-enhanced.customizePreviewHtmlHeadInWorkspace",
+          "when": "!isWeb"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "build": "node build.js",
+    "watch": "node build.js --watch",
+    "typecheck": "tsc --noEmit -p .",
+    "check:all": "pnpm check:eslint && pnpm check:prettier && pnpm typecheck",
+    "check:eslint": "eslint \"**/*\"",
+    "check:prettier": "prettier --check \"**/*.*\"",
+    "fix:all": "pnpm fix:eslint && pnpm fix:prettier",
+    "fix:eslint": "eslint --fix \"**/*\"",
+    "fix:prettier": "prettier --write \"**/*.*\"",
+    "prepare": "husky",
+    "test": "pnpm build && mocha --ui tdd --reporter spec \"test/**/*.test.js\"",
+    "test:unit": "mocha --ui tdd --reporter spec \"test/**/*.test.js\"",
+    "package": "vsce package --no-dependencies",
+    "vscode:prepublish": "pnpm build"
+  },
+  "dependencies": {
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1",
+    "markdown-it": "^14.3.3",
+    "puppeteer-core": "^23.11.1",
+    "yaml": "^2.9.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "@types/jsdom": "^21.1.7",
+    "@types/markdown-it": "^14.2.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^20.19.43",
+    "@types/vscode": "1.82.0",
+    "@vscode/vsce": "^3.9.2",
+    "esbuild": "^0.25.12",
+    "eslint": "^9.39.5",
+    "husky": "^9.1.7",
+    "jsdom": "^25.0.1",
+    "lint-staged": "^15.5.2",
+    "mocha": "^10.8.2",
+    "prettier": "^3.9.10",
+    "prettier-plugin-packagejson": "^3.1.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.72.1",
+    "vscode-uri": "^3.2.0"
+  },
+  "packageManager": "pnpm@10.28.0",
+  "lint-staged": {
+    "**/*.*": [
+      "eslint",
+      "prettier --write"
+    ]
+  }
+}
